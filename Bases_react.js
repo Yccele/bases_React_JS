@@ -188,6 +188,10 @@ ReactDOM.render(<Button />, document.getElementById('app'));
 // PROPS
 
 // Les props d'un component sont des objets
+// Un component peut passer des informations à un autre component : ce sont les props
+// Component props est un objet. Contient des informations sur ce component
+// Pour voir les props d'un component :  this.props
+
 
 
 
