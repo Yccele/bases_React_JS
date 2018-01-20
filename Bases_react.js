@@ -190,15 +190,66 @@ ReactDOM.render(<Button />, document.getElementById('app'));
 // Les props d'un component sont des objets
 // Un component peut passer des informations à un autre component : ce sont les props
 // Component props est un objet. Contient des informations sur ce component
-// Pour voir les props d'un component :  this.props
+// Pour voir les props d'un component : this.props
 
+// Pour passer une props (ici un string) :
+<MyComponent message="information concernant le component MyComponent" />
 
+// Autre que string (array ici) :
+<Greeting myInfo={["top", "secret", "lol"]} />
 
+// Mix :
+<Greeting name="Frarthur" town="Flundon" age={2} haunted={false} />
 
+// Récupérer une props :
+import React from 'react';
+import ReactDOM from 'react-dom';
 
+class Greeting extends React.Component {
+  render() {
+    return <h1>Hi there, {this.props.firstName}!</h1>;
+  }
+}
 
+ReactDOM.render(
+  <Greeting firstName='Roger' />, 
+  document.getElementById('app')
+);
 
+// Retourne "Hi there, Roger!"
 
+// Voir dossier Props (passer des props d'1 fichier js à l'autre)
 
+// ********************************************************************************************************* //
+// Gestion d'évènements
 
+class Button extends React.Component {
+  	render() {
+    	return (
+     		<button>
+       			 Click me!
+      		</button>
+    	);
+  	}
+}
 
+class Talker extends React.Component {
+	// Fonction appelée au onClick
+	talk () {
+		let speech = '';
+  		for (let i = 0; i < 10000; i++) {
+   			speech += 'blah ';
+  		}	
+  		alert(speech);
+	}
+  
+	render() {
+		// onClick avec appel de talk
+    	return <Button onClick={this.talk} />;
+  	}
+}
+
+ReactDOM.render(
+  	<Talker />,
+  	document.getElementById('app')
+);
